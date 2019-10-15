@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<title></title>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+	<button onclick="action1()">无返回、无参数</button>
+    <br>
+    <br>
+    <button onclick="action2()">无返回、有参数</button>
+    <br>
+    <br>
+    <button onclick="action3()">有返回、无参数</button>
+    <br>
+    <br>
+    <button onclick="action4()">有返回、有参数</button>
+    <br>
+    <br>
+    <button onclick="action5()">返回布尔、无参数</button>
+    <br>
+    <br>
+    <button onclick="action6()">弹框</button>
+</body>
+
+<!--以下为使用UIwebView时，js与调用原生的方法，无需前端修改，保持不变，由ios_brige.js脚本对交互d方法进行转化-->
+
+<script>
+<!--    对应原生声明的- (void)toLogin;-->
+    function action1(){
+        jsCallNative.toLogin();
+    }
+<!--    对应原生声明的- (void)setPageTitle:(NSString *)title;-->
+   function action2(){
+        jsCallNative.setPageTitle("首页");
+        
+   }
+<!--    对应原生声明的- (NSString *)getSign;-->
+   function action3(){
+        var sign = jsCallNative.getSign();
+        alert(sign);
+    }
+<!--    对应原生声明的- (NSString *)appendABCwithString:(NSString *)str;-->
+    function action4(){
+        var str = jsCallNative.appendABCwithString("123");
+        alert(str);
+    }
+<!--    对应原生声明的- (BOOL)isLogin;-->
+    function action5(){
+        var b = jsCallNative.isLogin();
+        alert(b);
+    }
+
+    function action6(){
+       alert("dkswejrkw");
+    }
+</script>
+</html>
